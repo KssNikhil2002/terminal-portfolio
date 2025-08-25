@@ -105,7 +105,7 @@ export function useTerminal() {
     // Add welcome message after clearing
     setTimeout(() => {
       if (!hasInitialized.current) {
-        addLine('output', 'Welcome, Nikhil! Type \'help\' to see available commands.');
+        addLine('output', 'Welcome! Type \'help\' to see available commands.');
         hasInitialized.current = true;
       }
     }, 100);
@@ -197,7 +197,7 @@ export function useTerminal() {
   // Initialize with welcome message - only once
   useEffect(() => {
     if (!hasInitialized.current) {
-      addLine('output', `Welcome, Nikhil! Type 'help' to see available commands.`);
+      addLine('output', `Welcome! Type 'help' to see available commands.`);
       hasInitialized.current = true;
     }
   }, [addLine]);
