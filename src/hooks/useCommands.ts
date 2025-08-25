@@ -81,11 +81,13 @@ Feel free to reach out for collaborations, opportunities, or just to chat!`;
   experience    List work experience and achievements
   projects      Display portfolio projects
   contact       Show contact information
+  resume        View resume document
 
 Utility Commands:
   clear         Clear the terminal screen
   help          Display this help message
   theme         Toggle between dark and light themes
+  portfolio     View original portfolio website
 
 Tips:
 • Use arrow keys (↑/↓) to navigate command history
@@ -156,6 +158,16 @@ Tips:
         // Open the original portfolio in a new tab
         window.open('https://kssnikhil.vercel.app/', '_blank');
         return { success: true, content: `Opening original portfolio: https://kssnikhil.vercel.app/\n\nThis terminal portfolio is v3.0 - a minimal, interactive experience.\nThe original portfolio (v2.0) features a more visual, comprehensive design.` };
+      }
+    },
+    resume: {
+      name: 'resume',
+      description: 'View resume document',
+      usage: 'resume',
+      execute: () => {
+        // Open the resume in a new tab
+        window.open('https://drive.google.com/file/d/102_OJVSzwp5X7M2tzc3n9pUrmevXLDSA/view', '_blank');
+        return { success: true, content: `Opening resume: https://drive.google.com/file/d/102_OJVSzwp5X7M2tzc3n9pUrmevXLDSA/view\n\n📄 View my complete professional experience and skills.` };
       }
     }
   }), [formatAbout, formatTechnologies, formatExperience, formatProjects, formatContact, formatHelp, theme, toggleTheme]);

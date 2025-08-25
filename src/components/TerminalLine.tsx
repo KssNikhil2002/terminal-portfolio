@@ -6,9 +6,10 @@ import { useTheme } from '@/contexts/ThemeContext';
 
 interface TerminalLineProps {
   line: TerminalLineType;
+  isFromStorage?: boolean;
 }
 
-export function TerminalLine({ line }: TerminalLineProps) {
+export function TerminalLine({ line, isFromStorage = false }: TerminalLineProps) {
   const { theme } = useTheme();
   const [displayedContent, setDisplayedContent] = useState('');
   const [isComplete, setIsComplete] = useState(false);
@@ -20,7 +21,14 @@ export function TerminalLine({ line }: TerminalLineProps) {
       return;
     }
 
-    // Typewriter effect for output content
+    // Skip typing animation if this line is loaded from storage (page refresh)
+    if (isFromStorage) {
+      setDisplayedContent(line.content);
+      setIsComplete(true);
+      return;
+    }
+
+    // Typewriter effect for new output content (when commands are executed)
     setDisplayedContent('');
     setIsComplete(false);
     
@@ -38,7 +46,7 @@ export function TerminalLine({ line }: TerminalLineProps) {
     }, 10); // Adjust speed as needed
 
     return () => clearInterval(typeInterval);
-  }, [line.content, line.type]);
+  }, [line.content, line.type, isFromStorage]);
 
   const getLineStyles = () => {
     const baseStyle = theme === 'dark' ? 'text-white' : 'text-black';
@@ -87,7 +95,7 @@ export function TerminalLine({ line }: TerminalLineProps) {
 
   return (
     <div className={`${getLineStyles()} transition-all duration-200 ease-in-out`}>
-      <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed">
+      <pre className="whitespace-pre-wrap font-mono text-xs md:text-sm leading-relaxed">
         {renderContentWithLinks(displayedContent)}
         {!isComplete && line.type === 'output' && (
           <span className="animate-pulse">|</span>

@@ -31,7 +31,7 @@ export function TerminalInput({ value, onChange, onExecute }: TerminalInputProps
 
   return (
     <div className={`flex items-center ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-      <span className="mr-3 font-mono text-sm opacity-60">nikhil $</span>
+      <span className="mr-2 md:mr-3 font-mono text-xs md:text-sm opacity-60">nikhil $</span>
       <div className="flex-1 relative">
         <input
           id="terminal-input"
@@ -39,7 +39,7 @@ export function TerminalInput({ value, onChange, onExecute }: TerminalInputProps
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={handleKeyDown}
-          className={`w-full bg-transparent border-none outline-none font-mono text-sm caret-transparent ${
+          className={`w-full bg-transparent border-none outline-none font-mono text-xs md:text-sm caret-transparent ${
             theme === 'dark' ? 'text-white placeholder-gray-500' : 'text-black placeholder-gray-400'
           }`}
           placeholder="Type a command..."
@@ -51,7 +51,7 @@ export function TerminalInput({ value, onChange, onExecute }: TerminalInputProps
           inputMode="text"
         />
         <span 
-          className={`absolute top-0 left-0 font-mono text-sm pointer-events-none ${
+          className={`absolute top-0 left-0 font-mono text-xs md:text-sm pointer-events-none ${
             showCursor ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-100 ${theme === 'dark' ? 'text-white' : 'text-black'}`}
           style={{ left: `${value.length * 0.6}em` }}

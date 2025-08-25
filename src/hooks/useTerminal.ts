@@ -11,6 +11,7 @@ export function useTerminal() {
   const [currentInput, setCurrentInput] = useState('');
   const [lineCounter, setLineCounter] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [linesFromStorage, setLinesFromStorage] = useState<Set<string>>(new Set());
   const hasInitialized = useRef(false);
   const { executeCommand, getAvailableCommands, getCommandSuggestions } = useCommands();
 
@@ -30,6 +31,9 @@ export function useTerminal() {
             timestamp: new Date(line.timestamp)
           }));
           setLines(linesWithDates);
+          // Track which lines are from storage
+          const storageLineIds = new Set<string>(linesWithDates.map((line: TerminalLine) => line.id));
+          setLinesFromStorage(storageLineIds);
           hasInitialized.current = true; // Mark as initialized if we have saved lines
         } catch {
           console.warn('Failed to parse saved terminal lines');
@@ -88,6 +92,7 @@ export function useTerminal() {
     setLines([]);
     setCommandHistory([]);
     setLineCounter(0);
+    setLinesFromStorage(new Set());
     hasInitialized.current = false; // Reset to allow welcome message again
     
     // Clear sessionStorage
@@ -206,6 +211,7 @@ export function useTerminal() {
     handleKeyDown,
     getAvailableCommands,
     getCommandSuggestions,
-    isProcessing
+    isProcessing,
+    linesFromStorage
   };
 }

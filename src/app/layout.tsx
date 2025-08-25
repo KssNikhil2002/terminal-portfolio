@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nikhil Kruthiventi | AI/ML Engineer & Full Stack Developer",
+  title: "Nikhil Kruthiventi",
   description: "AI/ML Engineer and Full Stack Developer specializing in Artificial Intelligence, Machine Learning, and modern web technologies. MS Computer Science student at UW-Madison.",
   keywords: ["Nikhil Kruthiventi", "AI Engineer", "ML Engineer", "Full Stack Developer", "UW-Madison", "Computer Science", "Artificial Intelligence", "Machine Learning", "React", "Python", "PyTorch"],
   authors: [{ name: "Nikhil Kruthiventi" }],

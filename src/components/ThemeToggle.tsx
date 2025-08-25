@@ -8,7 +8,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-3 rounded-full transition-all duration-200 backdrop-blur-sm ${
+      className={`p-2 md:p-3 rounded-full transition-all duration-200 backdrop-blur-sm ${
         theme === 'dark' 
           ? 'bg-white/10 hover:bg-white/20 text-white' 
           : 'bg-black/10 hover:bg-black/20 text-black'
@@ -18,7 +18,7 @@ export function ThemeToggle() {
     >
       {theme === 'dark' ? (
         <svg 
-          className="w-5 h-5" 
+          className="w-4 h-4 md:w-5 md:h-5" 
           fill="currentColor" 
           viewBox="0 0 20 20"
         >
@@ -30,7 +30,7 @@ export function ThemeToggle() {
         </svg>
       ) : (
         <svg 
-          className="w-5 h-5" 
+          className="w-4 h-4 md:w-5 md:h-5" 
           fill="currentColor" 
           viewBox="0 0 20 20"
         >
