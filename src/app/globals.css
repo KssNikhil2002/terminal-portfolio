@@ -22,5 +22,83 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-mono), monospace;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Terminal-specific styles */
+.terminal-light {
+  background: #fafafa;
+  color: #2d3748;
+}
+
+.terminal-light .terminal-header {
+  background: #e2e8f0;
+  border-color: #cbd5e0;
+}
+
+.terminal-light .terminal-input {
+  color: #2d3748;
+}
+
+.terminal-light .terminal-output {
+  color: #4a5568;
+}
+
+.terminal-light .terminal-error {
+  color: #e53e3e;
+}
+
+/* Custom scrollbar for terminal */
+.terminal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Selection colors */
+::selection {
+  background: #4ade80;
+  color: #1f2937;
+}
+
+::-moz-selection {
+  background: #4ade80;
+  color: #1f2937;
+}
+
+/* Prevent text selection on terminal controls */
+.terminal-controls {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+  
+  .terminal-content {
+    padding: 1rem;
+  }
+  
+  .terminal-input input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
 }

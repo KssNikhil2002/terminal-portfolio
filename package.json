@@ -1,12 +1,26 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "nikhil-kruthiventi-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive terminal-style portfolio website showcasing AI/ML engineering and full-stack development expertise",
+  "author": "Nikhil Kruthiventi <skruthiventi@wisc.edu>",
   "private": true,
+  "keywords": [
+    "portfolio",
+    "terminal",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "interactive",
+    "developer"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "preview": "npm run build && npm run start"
   },
   "dependencies": {
     "react": "19.1.0",
