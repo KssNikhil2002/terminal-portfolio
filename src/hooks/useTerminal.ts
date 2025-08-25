@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { TerminalLine, CommandOutput } from '@/types/terminal';
+import { TerminalLine } from '@/types/terminal';
 import { useCommands } from '@/hooks/useCommands';
 
 export function useTerminal() {
@@ -25,13 +25,13 @@ export function useTerminal() {
         try {
           const parsedLines = JSON.parse(savedLines);
           // Convert timestamp strings back to Date objects
-          const linesWithDates = parsedLines.map((line: any) => ({
+          const linesWithDates = parsedLines.map((line: TerminalLine & { timestamp: string }) => ({
             ...line,
             timestamp: new Date(line.timestamp)
           }));
           setLines(linesWithDates);
           hasInitialized.current = true; // Mark as initialized if we have saved lines
-        } catch (error) {
+        } catch {
           console.warn('Failed to parse saved terminal lines');
         }
       }
@@ -39,7 +39,7 @@ export function useTerminal() {
       if (savedHistory) {
         try {
           setCommandHistory(JSON.parse(savedHistory));
-        } catch (error) {
+        } catch {
           console.warn('Failed to parse saved command history');
         }
       }
@@ -47,7 +47,7 @@ export function useTerminal() {
       if (savedCounter) {
         try {
           setLineCounter(parseInt(savedCounter, 10));
-        } catch (error) {
+        } catch {
           console.warn('Failed to parse saved line counter');
         }
       }

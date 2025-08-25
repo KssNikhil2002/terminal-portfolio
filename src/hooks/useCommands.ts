@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Command, CommandOutput } from '@/types/terminal';
 import { personalInfo, technologies, experiences, projects } from '@/data/portfolio';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -95,7 +95,7 @@ Tips:
 • Use buttons in top-right for quick access to LinkedIn, GitHub, Resume`;
   }, []);
 
-  const commands: Record<string, Command> = {
+  const commands: Record<string, Command> = useMemo(() => ({
     about: {
       name: 'about',
       description: 'Display personal information and bio',
@@ -158,7 +158,7 @@ Tips:
         return { success: true, content: `Opening original portfolio: https://kssnikhil.vercel.app/\n\nThis terminal portfolio is v3.0 - a minimal, interactive experience.\nThe original portfolio (v2.0) features a more visual, comprehensive design.` };
       }
     }
-  };
+  }), [formatAbout, formatTechnologies, formatExperience, formatProjects, formatContact, formatHelp, theme, toggleTheme]);
 
   const executeCommand = useCallback((input: string): CommandOutput => {
     const trimmedInput = input.trim().toLowerCase();
@@ -185,11 +185,11 @@ Tips:
     errorMessage += ` Type 'help' for available commands.`;
 
     return { success: false, content: '', error: errorMessage };
-  }, [commands, theme, toggleTheme]);
+  }, [commands]);
 
   const getAvailableCommands = useCallback(() => {
     return Object.keys(commands);
-  }, []);
+  }, [commands]);
 
   const getCommandSuggestions = useCallback((input: string) => {
     const trimmedInput = input.trim().toLowerCase();
@@ -198,7 +198,7 @@ Tips:
     return Object.keys(commands).filter(cmd => 
       cmd.startsWith(trimmedInput)
     );
-  }, []);
+  }, [commands]);
 
   return {
     executeCommand,
