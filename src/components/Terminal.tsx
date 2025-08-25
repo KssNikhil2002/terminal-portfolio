@@ -140,7 +140,7 @@ export function Terminal() {
           </svg>
         </a>
         <a
-          href="https://github.com/nikhil-kruthiventi"
+          href="https://github.com/KssNikhil2002"
           target="_blank"
           rel="noopener noreferrer"
           className={`p-2 md:p-3 rounded-full transition-all duration-200 backdrop-blur-sm ${

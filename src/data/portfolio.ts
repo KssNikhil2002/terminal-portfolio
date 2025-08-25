@@ -10,7 +10,7 @@ Awards: Graduating Class Distinction (Top 15%), NCAA National Champion in Cricke
   location: 'Madison, WI',
   email: 'skruthiventi@wisc.edu',
   linkedin: 'https://linkedin.com/in/nikhil-kruthiventi',
-  github: 'https://github.com/nikhil-kruthiventi',
+  github: 'https://github.com/KssNikhil2002',
   interests: ['Artificial Intelligence', 'Machine Learning', 'Full Stack Development', 'Robotics', 'Cricket', 'Research']
 };
 
@@ -129,21 +129,21 @@ export const projects: Project[] = [
   {
     title: 'GitFlowAI',
     technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'PrismaORM', 'Clerk', 'NeonDB'],
-    githubUrl: 'https://github.com/nikhil-kruthiventi/gitflowai'
+    githubUrl: 'https://github.com/KssNikhil2002/GitFlowAI'
   },
   {
     title: 'Quick Bite',
     technologies: ['React Native', 'JavaScript', 'Firebase', 'TailwindCSS', 'Redux'],
-    githubUrl: 'https://github.com/nikhil-kruthiventi/quick-bite'
+    githubUrl: 'https://github.com/KssNikhil2002/Quick-Bite'
   },
   {
     title: 'Loan Approval Predictor',
     technologies: ['Python', 'Apache Spark', 'Docker', 'Machine Learning'],
-    githubUrl: 'https://github.com/nikhil-kruthiventi/loan-approval-predictor'
+    githubUrl: 'https://github.com/KssNikhil2002/Loan-Approval-Predictor'
   },
   {
     title: 'Generative Vision Model',
     technologies: ['PyTorch', 'Python', 'Jupyter Notebook', 'Computer Vision'],
-    githubUrl: 'https://github.com/nikhil-kruthiventi/generative-vision-model'
+    githubUrl: 'https://github.com/KssNikhil2002/Generative-Vision-Model'
   }
 ];
